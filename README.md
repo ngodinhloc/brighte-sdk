@@ -15,5 +15,5 @@
 
 [link-packagist]: https://packagist.org/packages/brightecapital/brighte-sdk
 [link-codecov]: https://codecov.io/gh/brighte-capital/brighte-sdk
-[link-travis]: https://travis-ci.com/brighte-capital/brighte-sdk.svg?branch=master
+[link-travis]: https://travis-ci.com/brighte-capital/brighte-sdk
 [link-downloads]: https://packagist.org/packages/brightecapital/brighte-sdk/stats
