@@ -6,7 +6,6 @@
 [![Coverage][ico-codecov]][link-codecov]
 
 
-
 [ico-license]: https://img.shields.io/github/license/nrk/predis.svg?style=flat-square
 [ico-version-stable]: https://img.shields.io/packagist/v/brightecapital/brighte-sdk.svg
 [ico-downloads-monthly]: https://img.shields.io/packagist/dm/brightecapital/brighte-sdk.svg
