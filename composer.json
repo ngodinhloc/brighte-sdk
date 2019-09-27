@@ -1,0 +1,36 @@
+{
+  "name": "brightecapital/brighte-sdk",
+  "description": "Brighte SDK",
+  "keywords": [
+    "Brighte",
+    "SDK"
+  ],
+  "homepage": "https://github.com/brightecapital/",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ken Ngo",
+      "email": "ken.ngo@brighte.com.au"
+    }
+  ],
+  "require": {
+    "php": "^7.0",
+    "brightecapital/service-schema": "^1.2",
+    "enqueue/sqs": "^0.9.8",
+    "predis/predis": "^1.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Brighte\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Brighte\\Test\\": "tests/"
+    }
+  },
+  "minimum-stability": "dev"
+}
