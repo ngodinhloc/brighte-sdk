@@ -1,0 +1,7 @@
+{
+  "redis.ms.crm": {
+    "scheme": "REDIS_SCHEME",
+    "host": "REDIS_HOST",
+    "port": "REDIS_PORT"
+  }
+}

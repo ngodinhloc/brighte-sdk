@@ -1,0 +1,16 @@
+{
+  "sqs.ms.crm": {
+    "key": "CRM_AWS_KEY",
+    "secret": "CRM_AWS_SECRET",
+    "region": "CRM_AWS_REGION",
+    "queue": "CRM_AWS_QUEUE",
+    "fifo": "CRM_AWS_QUEUE_FIFO"
+  },
+  "sqs.portal": {
+    "key": "PORTAL_AWS_KEY",
+    "secret": "PORTAL_AWS_SECRET",
+    "region": "PORTAL_AWS_REGION",
+    "queue": "PORTAL_AWS_QUEUE",
+    "fifo": "PORTAL_AWS_QUEUE_FIFO"
+  }
+}
