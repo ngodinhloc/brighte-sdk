@@ -1,0 +1,19 @@
+{
+  "doctrine.ms.crm": {
+    "driver": "DB_DRIVER",
+    "host": "DB_HOST",
+    "port": "DB_PORT",
+    "dbname": "DB_DATABASE",
+    "user": "DB_USERNAME",
+    "password": "DB_PASSWORD",
+    "charset": "DB_CHARSET",
+    "collation": "DB_COLLATION",
+    "prefix": "DB_PREFIX",
+    "memory": "DB_MEMORY",
+    "dev_mode": "DB_DEV_MODE",
+    "cache": "DB_CACHE",
+    "cache_dir": "BD_CACHE_DIR",
+    "metadata_dirs": "DOCTRINE_ENTITY_DIR",
+    "ignored_namespace": "DOCTRINE_IGNORE_NAMESPACE"
+  }
+}
