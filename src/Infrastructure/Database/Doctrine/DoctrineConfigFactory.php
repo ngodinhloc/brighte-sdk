@@ -43,23 +43,23 @@ class DoctrineConfigFactory
     }
 
     /**
-     * @param string|null $connection
+     * @param string|null $connectionName
      * @return \Brighte\Infrastructure\Database\Doctrine\DoctrineConfig
      * @throws \Brighte\Infrastructure\Database\Doctrine\Exceptions\DoctrineConfigException
      */
-    public function get(?string $connection = null): DoctrineConfig
+    public function get(?string $connectionName = null): DoctrineConfig
     {
-        if (!isset($this->configs->$connection)) {
-            throw new DoctrineConfigException(DoctrineConfigException::INVALID_CONNECTION_NAME . $connection);
+        if (!isset($this->configs->$connectionName)) {
+            throw new DoctrineConfigException(DoctrineConfigException::INVALID_CONNECTION_NAME . $connectionName);
         }
 
-        $configObject = $this->configs->$connection;
+        $configObject = $this->configs->$connectionName;
         $configArray = [];
 
         foreach ($configObject as $key => $para) {
             $configArray[$key] = getenv($para);
         }
 
-        return new DoctrineConfig($configArray);
+        return new DoctrineConfig($connectionName, $configArray);
     }//end get()
 }

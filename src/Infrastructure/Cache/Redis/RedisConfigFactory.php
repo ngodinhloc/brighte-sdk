@@ -44,10 +44,10 @@ class RedisConfigFactory
 
     /**
      * @param string|null $connection
-     * @return \Brighte\Infrastructure\Cache\Redis\RedisConfigInterface
+     * @return \Brighte\Infrastructure\Cache\Redis\RedisConfig
      * @throws \Brighte\Infrastructure\Cache\Redis\Exceptions\RedisConfigException
      */
-    public function get(?string $connection = null): RedisConfigInterface
+    public function get(?string $connection = null): RedisConfig
     {
         if (!isset($this->configs->$connection)) {
             throw new RedisConfigException(RedisConfigException::INVALID_CONNECTION_NAME . $connection);

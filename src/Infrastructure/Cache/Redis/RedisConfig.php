@@ -2,7 +2,7 @@
 
 namespace Brighte\Infrastructure\Cache\Redis;
 
-class RedisConfig implements RedisConfigInterface
+class RedisConfig
 {
 
     /** @var string|null */

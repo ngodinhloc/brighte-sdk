@@ -46,24 +46,24 @@ class SqsConfigFactory
     }
 
     /**
-     * @param string|null $connection
-     * @return \Brighte\Infrastructure\Aws\Sqs\SqsConfigInterface
+     * @param string|null $connectionName
+     * @return \Brighte\Infrastructure\Aws\Sqs\SqsConfig
      * @throws \Brighte\Infrastructure\Aws\Sqs\Exceptions\SqsConfigException
      */
-    public function get(?string $connection = null): SqsConfigInterface
+    public function get(?string $connectionName = null): SqsConfig
     {
-        if (!isset($this->configs->$connection)) {
-            throw new SqsConfigException(SqsConfigException::INVALID_CONNECTION_NAME . $connection);
+        if (!isset($this->configs->$connectionName)) {
+            throw new SqsConfigException(SqsConfigException::INVALID_CONNECTION_NAME . $connectionName);
         }
 
-        $configObject = $this->configs->$connection;
+        $configObject = $this->configs->$connectionName;
         $configArray = [];
 
         foreach ($configObject as $key => $para) {
             $configArray[$key] = getenv($para);
         }
 
-        return new SqsConfig($configArray);
+        return new SqsConfig($connectionName, $configArray);
     }//end get()
 
 }//end class

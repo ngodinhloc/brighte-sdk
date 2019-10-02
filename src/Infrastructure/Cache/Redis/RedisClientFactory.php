@@ -33,7 +33,7 @@ class RedisClientFactory
      */
     public function create(?string $connection = null): Client
     {
-        /** @var \Brighte\Infrastructure\Cache\Redis\RedisConfigInterface $config */
+        /** @var \Brighte\Infrastructure\Cache\Redis\RedisConfig $config */
         $config = $this->configFactory->get($connection);
 
         return new Client($config->toArray());

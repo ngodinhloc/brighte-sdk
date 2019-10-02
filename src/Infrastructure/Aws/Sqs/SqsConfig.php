@@ -4,8 +4,11 @@ declare(strict_types = 1);
 
 namespace Brighte\Infrastructure\Aws\Sqs;
 
-class SqsConfig implements SqsConfigInterface
+class SqsConfig
 {
+
+    /** @var string */
+    protected $connectionName;
 
     /** @var string $key aws key */
     protected $key;
@@ -25,10 +28,12 @@ class SqsConfig implements SqsConfigInterface
     /**
      * SqsConfig constructor.
      *
-     * @param string[]|null $config
+     * @param string|null $connectionName
+     * @param array|null $config
      */
-    public function __construct(?array $config = null)
+    public function __construct(?string $connectionName = null, ?array $config = null)
     {
+        $this->connectionName = $connectionName;
         $this->key = $config['key'] ?? null;
         $this->secret = $config['secret'] ?? null;
         $this->region = $config['region'] ?? null;
@@ -48,6 +53,25 @@ class SqsConfig implements SqsConfigInterface
             'queue' => $this->queue,
             'fifo' => $this->fifo,
         ];
+    }
+
+    /**
+     * @return string
+     */
+    public function getConnectionName(): string
+    {
+        return $this->connectionName;
+    }
+
+    /**
+     * @param string $connectionName
+     * @return SqsConfig
+     */
+    public function setConnectionName(string $connectionName): SqsConfig
+    {
+        $this->connectionName = $connectionName;
+
+        return $this;
     }
 
     /**

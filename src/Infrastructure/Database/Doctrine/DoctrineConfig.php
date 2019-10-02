@@ -6,6 +6,9 @@ class DoctrineConfig
 {
 
     /** @var string */
+    protected $connectionName;
+
+    /** @var string */
     protected $driver;
 
     /** @var string */
@@ -53,10 +56,12 @@ class DoctrineConfig
     /**
      * DoctrineConfig constructor.
      *
+     * @param string|null $connectionName
      * @param array|null $config
      */
-    public function __construct(?array $config = null)
+    public function __construct(?string $connectionName = null, ?array $config = null)
     {
+        $this->connectionName = $connectionName;
         $this->driver = $config['driver'] ?? null;
         $this->host = $config['host'] ?? null;
         $this->port = $config['port'] ?? null;
@@ -91,6 +96,25 @@ class DoctrineConfig
             'prefix' => $this->prefix,
             'memory' => $this->memory,
         ];
+    }
+
+    /**
+     * @return string
+     */
+    public function getConnectionName(): string
+    {
+        return $this->connectionName;
+    }
+
+    /**
+     * @param string $connectionName
+     * @return DoctrineConfig
+     */
+    public function setConnectionName(string $connectionName): DoctrineConfig
+    {
+        $this->connectionName = $connectionName;
+
+        return $this;
     }
 
     /**

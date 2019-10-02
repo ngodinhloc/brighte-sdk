@@ -49,12 +49,12 @@ class EntityManagerFactory
         }
 
         $configuration->setMetadataDriverImpl(
-            new AnnotationDriver($reader, [$config->getMetadataDir()]),
+            new AnnotationDriver($reader, [$config->getMetadataDir()])
         );
 
         if ($config->getCacheDir()) {
             $configuration->setMetadataCacheImpl(
-                new FilesystemCache($config->getCacheDir()),
+                new FilesystemCache($config->getCacheDir())
             );
         }
 
