@@ -12,5 +12,5 @@ class Event
     public const SALESFORCE_OPPORTUNITY_CREATE = 'Salesforce.Opportunity.Create';
     public const SALESFORCE_OPPORTUNITY_UPDATE = 'Salesforce.Opportunity.Update';
     public const SALESFORCE_TASK_CREATE = 'Salesforce.Task.Create';
-    public const SALESFORCE_UPDATE_TASK = 'Salesforce.Task.Update';
+    public const SALESFORCE_TASK_UPDATE = 'Salesforce.Task.Update';
 }
