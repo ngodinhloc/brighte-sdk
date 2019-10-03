@@ -5,13 +5,12 @@ namespace Brighte\Microservice\Crm;
 class Event
 {
 
-    public const SALESFORCE_CREATE_ACCOUNT = 'Salesforce.CreateAccount';
-    public const SALESFORCE_CREATE_CONTACT = 'Salesforce.CreateContact';
-    public const SALESFORCE_CREATE_OPPORTUNITY = 'Salesforce.CreateOpportunity';
-    public const SALESFORCE_CREATE_TASK = 'Salesforce.CreateTask';
-
-    public const SALESFORCE_UPDATE_ACCOUNT = 'Salesforce.UpdateAccount';
-    public const SALESFORCE_UPDATE_CONTACT = 'Salesforce.UpdateContact';
-    public const SALESFORCE_UPDATE_OPPORTUNITY = 'Salesforce.UpdateOpportunity';
-    public const SALESFORCE_UPDATE_TASK = 'Salesforce.UpdateTask';
+    public const SALESFORCE_ACCOUNT_CREATE = 'Salesforce.Account.Create';
+    public const SALESFORCE_ACCOUNT_UPDATE = 'Salesforce.Account.Update';
+    public const SALESFORCE_CONTACT_CREATE = 'Salesforce.Contact.Create';
+    public const SALESFORCE_CONTACT_UPDATE = 'Salesforce.Contact.Update';
+    public const SALESFORCE_OPPORTUNITY_CREATE = 'Salesforce.Opportunity.Create';
+    public const SALESFORCE_OPPORTUNITY_UPDATE = 'Salesforce.Opportunity.Update';
+    public const SALESFORCE_TASK_CREATE = 'Salesforce.Task.Create';
+    public const SALESFORCE_UPDATE_TASK = 'Salesforce.Task.Update';
 }
