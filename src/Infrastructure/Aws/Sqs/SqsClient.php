@@ -2,27 +2,27 @@
 
 namespace Brighte\Infrastructure\Aws\Sqs;
 
-use Enqueue\Sqs\SqsConnectionFactory;
-use Enqueue\Sqs\SqsConsumer;
-use Enqueue\Sqs\SqsContext;
-use Enqueue\Sqs\SqsDestination;
-use Enqueue\Sqs\SqsMessage;
+use Brighte\Sqs\SqsConnectionFactory;
+use Brighte\Sqs\SqsConsumer;
+use Brighte\Sqs\SqsContext;
+use Brighte\Sqs\SqsDestination;
+use Brighte\Sqs\SqsMessage;
 
 class SqsClient implements SqsClientInterface
 {
     /** @var \Brighte\Infrastructure\Aws\Sqs\SqsConfig */
     protected $config;
 
-    /** @var \Enqueue\Sqs\SqsConnectionFactory */
+    /** @var \Brighte\Sqs\SqsConnectionFactory */
     protected $factory;
 
-    /** @var \Enqueue\Sqs\SqsContext */
+    /** @var \Brighte\Sqs\SqsContext */
     protected $context;
 
-    /** @var \Enqueue\Sqs\SqsDestination */
+    /** @var \Brighte\Sqs\SqsDestination */
     protected $queue;
 
-    /** @var \Enqueue\Sqs\SqsConsumer */
+    /** @var \Brighte\Sqs\SqsConsumer */
     protected $consumer;
 
     /**
@@ -43,7 +43,7 @@ class SqsClient implements SqsClientInterface
     /**
      * @param string|null $body
      * @param string|null $groupId
-     * @return \Enqueue\Sqs\SqsMessage|null
+     * @return \Brighte\Sqs\SqsMessage|null
      * @throws \Interop\Queue\Exception
      * @throws \Interop\Queue\Exception\InvalidDestinationException
      * @throws \Interop\Queue\Exception\InvalidMessageException
@@ -59,7 +59,7 @@ class SqsClient implements SqsClientInterface
 
     /**
      * @param int $timeOut millisecond
-     * @return \Enqueue\Sqs\SqsMessage|null
+     * @return \Brighte\Sqs\SqsMessage|null
      */
     public function receive(int $timeOut = 1000)
     {
@@ -96,7 +96,7 @@ class SqsClient implements SqsClientInterface
     }
 
     /**
-     * @return \Enqueue\Sqs\SqsConnectionFactory
+     * @return \Brighte\Sqs\SqsConnectionFactory
      */
     public function getFactory(): SqsConnectionFactory
     {
@@ -104,7 +104,7 @@ class SqsClient implements SqsClientInterface
     }
 
     /**
-     * @param \Enqueue\Sqs\SqsConnectionFactory $factory
+     * @param \Brighte\Sqs\SqsConnectionFactory $factory
      * @return \Brighte\Infrastructure\Aws\Sqs\SqsClient
      */
     public function setFactory(SqsConnectionFactory $factory): SqsClient
@@ -115,7 +115,7 @@ class SqsClient implements SqsClientInterface
     }
 
     /**
-     * @return \Enqueue\Sqs\SqsContext
+     * @return \Brighte\Sqs\SqsContext
      */
     public function getContext(): SqsContext
     {
@@ -123,7 +123,7 @@ class SqsClient implements SqsClientInterface
     }
 
     /**
-     * @param \Enqueue\Sqs\SqsContext $context
+     * @param \Brighte\Sqs\SqsContext $context
      * @return \Brighte\Infrastructure\Aws\Sqs\SqsClient
      */
     public function setContext(SqsContext $context): SqsClient
@@ -134,7 +134,7 @@ class SqsClient implements SqsClientInterface
     }
 
     /**
-     * @return \Enqueue\Sqs\SqsDestination
+     * @return \Brighte\Sqs\SqsDestination
      */
     public function getQueue(): SqsDestination
     {
@@ -142,7 +142,7 @@ class SqsClient implements SqsClientInterface
     }
 
     /**
-     * @param \Enqueue\Sqs\SqsDestination $queue
+     * @param \Brighte\Sqs\SqsDestination $queue
      * @return \Brighte\Infrastructure\Aws\Sqs\SqsClient
      */
     public function setQueue(SqsDestination $queue): SqsClient
@@ -153,7 +153,7 @@ class SqsClient implements SqsClientInterface
     }
 
     /**
-     * @return \Enqueue\Sqs\SqsConsumer
+     * @return \Brighte\Sqs\SqsConsumer
      */
     public function getConsumer(): SqsConsumer
     {
@@ -161,7 +161,7 @@ class SqsClient implements SqsClientInterface
     }
 
     /**
-     * @param \Enqueue\Sqs\SqsConsumer $consumer
+     * @param \Brighte\Sqs\SqsConsumer $consumer
      * @return \Brighte\Infrastructure\Aws\Sqs\SqsClient
      */
     public function setConsumer(SqsConsumer $consumer): SqsClient
