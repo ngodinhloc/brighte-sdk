@@ -13,7 +13,7 @@
     "dev_mode": "DB_DEV_MODE",
     "cache": "DB_CACHE",
     "cache_dir": "BD_CACHE_DIR",
-    "metadata_dirs": "DOCTRINE_ENTITY_DIR",
-    "ignored_namespace": "DOCTRINE_IGNORE_NAMESPACE"
+    "metadata_dirs": "DOCTRINE_ENTITY_DIRS",
+    "ignored_namespace": "DOCTRINE_IGNORE_NAMESPACES"
   }
 }

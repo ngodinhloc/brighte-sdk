@@ -41,15 +41,16 @@ class EntityManagerFactory
     {
         $config = $this->configFactory->get($connectionName);
         $connection = $config->getConnection();
-        $configuration = Setup::createAnnotationMetadataConfiguration([$config->getMetadataDir()], $config->isDevMode());
+        $configuration = Setup::createAnnotationMetadataConfiguration($config->getMetadataDirs(), $config->isDevMode());
         $reader = new AnnotationReader;
 
-        if ($config->getIgnoredNamespace()) {
-            $reader->addGlobalIgnoredNamespace($config->getIgnoredNamespace());
+        if ($config->getIgnoredNamespaces()) {
+            foreach ($config->getIgnoredNamespaces() as $namespace)
+                $reader->addGlobalIgnoredNamespace($namespace);
         }
 
         $configuration->setMetadataDriverImpl(
-            new AnnotationDriver($reader, [$config->getMetadataDir()])
+            new AnnotationDriver($reader, $config->getMetadataDirs())
         );
 
         if ($config->getCacheDir()) {
