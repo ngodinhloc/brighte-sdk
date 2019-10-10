@@ -43,15 +43,16 @@ class SqsClient implements SqsClientInterface
     /**
      * @param string $body
      * @param string $groupId
-     * @param array|null $messageAttributes MessageAttributes
+     * @param array|null $properties
+     * @param array|null $headers
      * @return \Brighte\Sqs\SqsMessage|null
      * @throws \Interop\Queue\Exception
      * @throws \Interop\Queue\Exception\InvalidDestinationException
      * @throws \Interop\Queue\Exception\InvalidMessageException
      */
-    public function publish(string $body, string $groupId, array $messageAttributes = null)
+    public function publish(string $body, string $groupId, array $properties = null, array $headers = null)
     {
-        $message = $this->context->createMessage($body, $messageAttributes);
+        $message = $this->context->createMessage($body, $properties, $headers);
         $message->setMessageGroupId($groupId);
 
         $this->context->createProducer()->send($this->queue, $message);

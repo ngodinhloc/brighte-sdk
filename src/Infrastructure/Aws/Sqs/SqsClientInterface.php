@@ -12,10 +12,11 @@ interface SqsClientInterface
     /**
      * @param string $body
      * @param string $groupId
-     * @param array|null $messageAttributes MessageAttributes
+     * @param array|null $properties
+     * @param array|null $headers
      * @return mixed
      */
-    public function publish(string $body, string $groupId, array $messageAttributes = null);
+    public function publish(string $body, string $groupId, array $properties = null, array $headers = null);
 
     /**
      * @return \Brighte\Sqs\SqsMessage|mixed
