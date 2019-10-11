@@ -1,5 +1,5 @@
 # Brighte SDK
-[![Software license][ico-license]](LICENSE)
+[![Software license][ico-license]](README.md)
 [![Version][ico-version-stable]][link-packagist]
 [![Download][ico-downloads-monthly]][link-downloads]
 [![Build status][ico-travis]][link-travis]
