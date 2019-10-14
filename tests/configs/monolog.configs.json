@@ -1,0 +1,13 @@
+{
+  "monolog.ms.crm": {
+    "name": "APP_NAME",
+    "path": "APP_LOG_PATH",
+    "level": "APP_LOG_LEVEL",
+    "sentry": "APP_LOG_SENTRY",
+    "sentry_dsn": "SENTRY_DSN",
+    "sentry_public_key": "SENTRY_PUBLIC_KEY",
+    "sentry_host": "SENTRY_HOST",
+    "sentry_project_id": "SENTRY_PROJECT_ID",
+    "sentry_environment": "APP_ENV"
+  }
+}
