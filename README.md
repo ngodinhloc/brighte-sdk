@@ -5,7 +5,6 @@
 [![Build status][ico-travis]][link-travis]
 [![Coverage][ico-codecov]][link-codecov]
 
-
 [ico-license]: https://img.shields.io/github/license/nrk/predis.svg?style=flat-square
 [ico-version-stable]: https://img.shields.io/packagist/v/brightecapital/brighte-sdk.svg
 [ico-downloads-monthly]: https://img.shields.io/packagist/dm/brightecapital/brighte-sdk.svg
@@ -16,3 +15,10 @@
 [link-codecov]: https://codecov.io/gh/brighte-capital/brighte-sdk
 [link-travis]: https://travis-ci.com/brighte-capital/brighte-sdk
 [link-downloads]: https://packagist.org/packages/brightecapital/brighte-sdk/stats
+
+A collection of tools that are useful for microservices
+
++ (AWS) SqsClientFactory
++ (Doctrine) EntityManagerFactory
++ MonologFactory
++ RedisClientFactory 
