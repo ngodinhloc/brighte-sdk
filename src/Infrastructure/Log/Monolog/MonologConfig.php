@@ -46,15 +46,15 @@ class MonologConfig
     public function __construct(string $configName = null, ?array $config = null)
     {
         $this->configName = $configName;
-        $this->name = $config['name'] ?? null;
-        $this->path = $config['path'] ?? null;
-        $this->level = $config['level'] ?? null;
+        $this->name = isset($config['name']) ? $config['name'] : null;
+        $this->path = isset($config['path']) ? $config['path'] : null;
+        $this->level = isset($config['level']) ? $config['level'] : null;
         $this->sentry = (isset($config['sentry']) && $config['sentry'] == "true") ? true : false;
-        $this->sentryDsn = $config['sentry_dsn'] ?? null;
-        $this->sentryPublicKey = $config['sentry_public_key'] ?? null;
-        $this->sentryHost = $config['sentry_host'] ?? null;
-        $this->sentryProjectId = $config['sentry_project_id'] ?? null;
-        $this->sentryEnvironment = $config['sentry_environment'] ?? null;
+        $this->sentryDsn = isset($config['sentry_dsn']) ? $config['sentry_dsn'] : null;
+        $this->sentryPublicKey = isset($config['sentry_public_key']) ? $config['sentry_public_key'] : null;
+        $this->sentryHost = isset($config['sentry_host']) ? $config['sentry_host'] : null;
+        $this->sentryProjectId = isset($config['sentry_project_id']) ? $config['sentry_project_id'] : null;
+        $this->sentryEnvironment = isset($config['sentry_environment']) ? $config['sentry_environment'] : null;
     }
 
     /**
@@ -81,7 +81,7 @@ class MonologConfig
 
     /**
      * @param string $name
-     * @return MonologConfig
+     * @return \Brighte\Infrastructure\Log\Monolog\MonologConfig
      */
     public function setName(string $name = null)
     {
@@ -100,7 +100,7 @@ class MonologConfig
 
     /**
      * @param string $path
-     * @return MonologConfig
+     * @return \Brighte\Infrastructure\Log\Monolog\MonologConfig
      */
     public function setPath(string $path = null)
     {
@@ -119,7 +119,7 @@ class MonologConfig
 
     /**
      * @param int|string $level
-     * @return MonologConfig
+     * @return \Brighte\Infrastructure\Log\Monolog\MonologConfig
      */
     public function setLevel($level = null)
     {
@@ -138,7 +138,7 @@ class MonologConfig
 
     /**
      * @param bool $sentry
-     * @return MonologConfig
+     * @return \Brighte\Infrastructure\Log\Monolog\MonologConfig
      */
     public function setSentry(bool $sentry = null)
     {
@@ -157,7 +157,7 @@ class MonologConfig
 
     /**
      * @param string $sentryDsn
-     * @return MonologConfig
+     * @return \Brighte\Infrastructure\Log\Monolog\MonologConfig
      */
     public function setSentryDsn(string $sentryDsn = null)
     {
@@ -176,7 +176,7 @@ class MonologConfig
 
     /**
      * @param string $sentryPublicKey
-     * @return MonologConfig
+     * @return \Brighte\Infrastructure\Log\Monolog\MonologConfig
      */
     public function setSentryPublicKey(string $sentryPublicKey = null)
     {
@@ -195,7 +195,7 @@ class MonologConfig
 
     /**
      * @param string $sentryHost
-     * @return MonologConfig
+     * @return \Brighte\Infrastructure\Log\Monolog\MonologConfig
      */
     public function setSentryHost(string $sentryHost = null)
     {
@@ -214,7 +214,7 @@ class MonologConfig
 
     /**
      * @param string $sentryProjectId
-     * @return MonologConfig
+     * @return \Brighte\Infrastructure\Log\Monolog\MonologConfig
      */
     public function setSentryProjectId(string $sentryProjectId = null)
     {
@@ -222,4 +222,43 @@ class MonologConfig
 
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getConfigName()
+    {
+        return $this->configName;
+    }
+
+    /**
+     * @param string $configName
+     * @return \Brighte\Infrastructure\Log\Monolog\MonologConfig
+     */
+    public function setConfigName(string $configName = null)
+    {
+        $this->configName = $configName;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSentryEnvironment()
+    {
+        return $this->sentryEnvironment;
+    }
+
+    /**
+     * @param string $sentryEnvironment
+     * @return \Brighte\Infrastructure\Log\Monolog\MonologConfig
+     */
+    public function setSentryEnvironment(string $sentryEnvironment = null)
+    {
+        $this->sentryEnvironment = $sentryEnvironment;
+
+        return $this;
+    }
+
 }//end class
