@@ -2,9 +2,8 @@
 
 declare(strict_types = 1);
 
-namespace App\Salesforce\Infrastructure\Log;
+namespace Brighte\Infrastructure\Log\Monolog;
 
-use Brighte\Infrastructure\Log\Monolog\MonologConfigFactory;
 use Monolog\ErrorHandler;
 use Monolog\Handler\FingersCrossedHandler;
 use Monolog\Handler\RavenHandler;
