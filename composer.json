@@ -19,7 +19,7 @@
     "brightecapital/service-schema": "^1.2",
     "doctrine/orm": "^2.5",
     "sentry/sentry": "1.10.0",
-    "monolog/monolog": "1.x-dev",
+    "monolog/monolog": "^1.23",
     "predis/predis": "^1.1"
   },
   "require-dev": {
