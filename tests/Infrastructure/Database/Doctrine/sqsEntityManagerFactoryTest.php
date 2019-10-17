@@ -1,6 +1,5 @@
 <?php
 namespace Brighte\Test\Infrastructure\Aws\Sqs;
-use Brighte\Infrastructure\Database\Doctrine\DoctrineConfig;
 use Brighte\Infrastructure\Database\Doctrine\EntityManagerFactory;
 use PHPUnit\Framework\TestCase;
 
