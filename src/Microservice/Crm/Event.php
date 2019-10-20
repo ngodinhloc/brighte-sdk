@@ -15,4 +15,5 @@ class Event
     public const SALESFORCE_TASK_UPDATE = 'Salesforce.Task.Update';
     public const SALESFORCE_OBJECTS_CREATE = 'Salesforce.Objects.Create';
     public const SALESFORCE_OBJECTS_UPDATE = 'Salesforce.Objects.Update';
+    public const PORTAL_ACCREDITATION_APPLICATION_UPDATE = 'Portal.AccreditationApplication.Update';
 }
