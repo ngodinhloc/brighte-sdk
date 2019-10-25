@@ -22,7 +22,7 @@ class Api extends AbstractApi implements AuthenticateInterface
         }
 
         try {
-            $decoded = JWT::decode($this->jwtToken, $this->jwtSecret, [$this->jwtAlg]);
+            $decoded = JWT::decode($token, $this->jwtSecret, [$this->jwtAlg]);
         } catch (\Exception $exception) {
             throw new IdentityException(IdentityException::FAILED_TO_AUTHENTICATE_TOKEN . $exception->getMessage());
         }
