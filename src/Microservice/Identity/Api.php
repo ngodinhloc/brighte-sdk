@@ -5,17 +5,19 @@ namespace Brighte\Microservice\Identity;
 use Brighte\Microservice\Abstracts\AbstractApi;
 use Brighte\Microservice\Identity\Exceptions\IdentityException;
 use Firebase\JWT\JWT;
+use GuzzleHttp\Exception\GuzzleException;
 
 class Api extends AbstractApi implements AuthenticateInterface
 {
 
     /**
+     * @param string|null $token
      * @return mixed|object
      * @throws \Brighte\Microservice\Identity\Exceptions\IdentityException
      */
-    public function authenticate()
+    public function authenticate(?string $token = null)
     {
-        if (empty($this->jwtToken) || empty($this->jwtSecret) || empty($this->jwtAlg)) {
+        if (empty($this->jwtSecret) || empty($this->jwtAlg)) {
             throw new IdentityException(IdentityException::INVALID_JWT_SETTINGS);
         }
 
@@ -30,7 +32,7 @@ class Api extends AbstractApi implements AuthenticateInterface
 
     /**
      * @param string|null $key
-     * @return $this
+     * @return mixed
      * @throws \Brighte\Microservice\Identity\Exceptions\IdentityException
      */
     public function requestToken(?string $key = null)
@@ -43,14 +45,15 @@ class Api extends AbstractApi implements AuthenticateInterface
             );
             $response = $this->client->send($request);
             $json = json_decode($response->getBody(true));
-            if ($json->accessToken) {
-                $this->jwtToken = $json->accessToken;
+            if (isset($json->accessToken)) {
+                return $json->accessToken;
             }
         } catch (\Exception $exception) {
             throw new IdentityException(IdentityException::FAILED_TO_REQUEST_TOKEN . $exception->getMessage());
+        } catch (GuzzleException $exception) {
+            throw new IdentityException(IdentityException::FAILED_TO_REQUEST_TOKEN . $exception->getMessage());
         }
-
-        return $this;
+        throw new IdentityException(IdentityException::FAILED_TO_REQUEST_TOKEN);
     }
 
     /**
