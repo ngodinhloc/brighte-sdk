@@ -2,12 +2,12 @@
 
 namespace Brighte\Microservice\Abstracts;
 
-use Guzzle\Http\Client;
+use GuzzleHttp\Client;
 
 abstract class AbstractApi
 {
 
-    /** @var \Guzzle\Http\Client */
+    /** @var \GuzzleHttp\Client */
     protected $client;
 
     /** @var string */
@@ -19,6 +19,7 @@ abstract class AbstractApi
     /** @var string */
     protected $jwtSecret;
 
+    /** @var string */
     protected $jwtAlg;
 
     /**
@@ -37,7 +38,7 @@ abstract class AbstractApi
     }
 
     /**
-     * @return \Guzzle\Http\Client
+     * @return \GuzzleHttp\Client
      */
     public function getClient()
     {
@@ -45,10 +46,10 @@ abstract class AbstractApi
     }
 
     /**
-     * @param \Guzzle\Http\Client $client
-     * @return AbstractApi
+     * @param \GuzzleHttp\Client $client
+     * @return \Brighte\Microservice\Abstracts\AbstractApi
      */
-    public function setClient(\Guzzle\Http\Client $client)
+    public function setClient(Client $client = null)
     {
         $this->client = $client;
 
@@ -65,9 +66,9 @@ abstract class AbstractApi
 
     /**
      * @param string $apiEndpoint
-     * @return AbstractApi
+     * @return \Brighte\Microservice\Abstracts\AbstractApi
      */
-    public function setApiEndpoint(string $apiEndpoint)
+    public function setApiEndpoint(string $apiEndpoint = null)
     {
         $this->apiEndpoint = $apiEndpoint;
 
@@ -84,9 +85,9 @@ abstract class AbstractApi
 
     /**
      * @param string $jwtSecret
-     * @return AbstractApi
+     * @return \Brighte\Microservice\Abstracts\AbstractApi
      */
-    public function setJwtSecret(string $jwtSecret)
+    public function setJwtSecret(string $jwtSecret = null)
     {
         $this->jwtSecret = $jwtSecret;
 
@@ -103,9 +104,9 @@ abstract class AbstractApi
 
     /**
      * @param string $jwtToken
-     * @return AbstractApi
+     * @return \Brighte\Microservice\Abstracts\AbstractApi
      */
-    public function setJwtToken(string $jwtToken)
+    public function setJwtToken(string $jwtToken = null)
     {
         $this->jwtToken = $jwtToken;
 
