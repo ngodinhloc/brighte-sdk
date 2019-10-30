@@ -16,7 +16,7 @@
 [link-travis]: https://travis-ci.com/brighte-capital/brighte-sdk
 [link-downloads]: https://packagist.org/packages/brightecapital/brighte-sdk/stats
 
-### Brighte SDK includes two section
+### Brighte SDK includes two sections
 #### 1. Infrastructure: A collection of tools that allow to easily configure and create objects on the flight:
 
 + (AWS) SqsClientFactory
