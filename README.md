@@ -17,14 +17,14 @@
 [link-downloads]: https://packagist.org/packages/brightecapital/brighte-sdk/stats
 
 ### Brighte SDK includes two section
-#### Infrastructure: A collection of tools that allow to easily configure and create objects on the flight:
+#### 1. Infrastructure: A collection of tools that allow to easily configure and create objects on the flight:
 
 + (AWS) SqsClientFactory
 + (Doctrine) EntityManagerFactory
 + MonologFactory
 + RedisClientFactory 
 
-#### Micrservices: This the the acutal sdk that provide api to each of the microservice
+#### 2. Micrservices: This the the acutal sdk that provide api to each of the microservice
 
 + Identity service
 + Crm service
