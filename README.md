@@ -16,9 +16,15 @@
 [link-travis]: https://travis-ci.com/brighte-capital/brighte-sdk
 [link-downloads]: https://packagist.org/packages/brightecapital/brighte-sdk/stats
 
-A collection of tools that are useful for microservices
+### Brighte SDK includes two sections
+#### 1. Infrastructure: A collection of tools that allow to easily configure and create objects on the flight:
 
 + (AWS) SqsClientFactory
 + (Doctrine) EntityManagerFactory
 + MonologFactory
 + RedisClientFactory 
+
+#### 2. Micrservices: This the the acutal sdk that provide api to each of the microservice
+
++ Identity service
++ Crm service
