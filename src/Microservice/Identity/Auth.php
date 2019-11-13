@@ -22,12 +22,13 @@ class Auth extends AbstractApi implements AuthInterface
         }
 
         try {
-            $request = $this->client->post(
+            $response = $this->client->post(
                 $this->composeUri(Discovery::ACTION_AUTHENTICATE),
-                $this->composeHeaders(),
-                $this->composeBody($key)
+                [
+                    'headers' => $this->composeHeaders(),
+                    'body' => $this->composeBody($key),
+                ]
             );
-            $response = $this->client->send($request);
             $json = json_decode($response->getBody(true));
             if (isset($json->accessToken)) {
                 return $json->accessToken;
