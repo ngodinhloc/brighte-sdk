@@ -82,7 +82,7 @@ class Auth extends AbstractApi implements AuthInterface
             return false;
         }
 
-        return count(array_intersect($scope, $decodedToken->scope)) > 0;
+        return !array_diff($scope, $decodedToken->scope);
     }
 
     /**
