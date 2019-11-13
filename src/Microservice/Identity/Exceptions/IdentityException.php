@@ -13,5 +13,5 @@ class IdentityException extends BaseException
     public const INVALID_JWT_SETTINGS = 'Please check jwt secret, algorithm';
     public const FAILED_TO_REQUEST_TOKEN = 'Failed to request token, please check your key. Error: ';
     public const FAILED_TO_AUTHENTICATE_TOKEN = 'Failed to authenticate token. Error: ';
-
+    public const FAILED_TO_AUTHORIZE_TOKEN = 'Failed to authorize token';
 }
