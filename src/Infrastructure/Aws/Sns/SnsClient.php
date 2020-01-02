@@ -3,6 +3,7 @@
 namespace Brighte\Infrastructure\Aws\Sns;
 
 use Brighte\Sns\SnsConnectionFactory;
+use Brighte\Sns\SnsContext;
 
 class SnsClient implements SnsClientInterface
 {
@@ -46,6 +47,63 @@ class SnsClient implements SnsClientInterface
         $this->context->createProducer()->send($topic, $message);
 
         return $message;
+    }
+
+    /**
+     * @return \Brighte\Infrastructure\Aws\Sns\SnsConfig
+     */
+    public function getConfig(): SnsConfig
+    {
+        return $this->config;
+    }
+
+    /**
+     * @param \Brighte\Infrastructure\Aws\Sns\SnsConfig $config
+     * @return SnsClient
+     */
+    public function setConfig(SnsConfig $config): SnsClient
+    {
+        $this->config = $config;
+
+        return $this;
+    }
+
+    /**
+     * @return \Brighte\Sns\SnsConnectionFactory
+     */
+    public function getFactory(): SnsConnectionFactory
+    {
+        return $this->factory;
+    }
+
+    /**
+     * @param \Brighte\Sns\SnsConnectionFactory $factory
+     * @return SnsClient
+     */
+    public function setFactory(SnsConnectionFactory $factory): SnsClient
+    {
+        $this->factory = $factory;
+
+        return $this;
+    }
+
+    /**
+     * @return \Brighte\Sns\SnsContext
+     */
+    public function getContext(): SnsContext
+    {
+        return $this->context;
+    }
+
+    /**
+     * @param \Brighte\Sns\SnsContext $context
+     * @return SnsClient
+     */
+    public function setContext(SnsContext $context): SnsClient
+    {
+        $this->context = $context;
+
+        return $this;
     }//end publish()
 
 }//end class
