@@ -2,12 +2,12 @@
 
 declare(strict_types = 1);
 
-namespace Brighte\Infrastructure\Aws\Sqs;
+namespace Brighte\Infrastructure\Aws\Sns;
 
-use Brighte\Infrastructure\Aws\Sqs\Exceptions\SqsConfigException;
+use Brighte\Infrastructure\Aws\Sns\Exceptions\SnsConfigException;
 use ServiceSchema\Json\JsonReader;
 
-class SqsConfigFactory
+class SnsConfigFactory
 {
 
     /** @var string|null */
@@ -20,7 +20,7 @@ class SqsConfigFactory
      * SqsConfigFactory constructor.
      *
      * @param string|null $configFile
-     * @throws \Brighte\Infrastructure\Aws\Sqs\Exceptions\SqsConfigException
+     * @throws \Brighte\Infrastructure\Aws\Sns\Exceptions\SnsConfigException
      * @throws \ServiceSchema\Json\Exception\JsonException
      */
     public function __construct(?string $configFile = null)
@@ -30,13 +30,13 @@ class SqsConfigFactory
     }
 
     /**
-     * @throws \Brighte\Infrastructure\Aws\Sqs\Exceptions\SqsConfigException
+     * @throws \Brighte\Infrastructure\Aws\Sns\Exceptions\SnsConfigException
      * @throws \ServiceSchema\Json\Exception\JsonException
      */
     protected function loadConfigs(): void
     {
         if (!is_file($this->configFile)) {
-            throw new SqsConfigException(SqsConfigException::INVALID_CONFIG_FILE . $this->configFile);
+            throw new SnsConfigException(SnsConfigException::INVALID_CONFIG_FILE . $this->configFile);
         }
 
         $this->configs = JsonReader::decode(JsonReader::read($this->configFile));
@@ -44,13 +44,13 @@ class SqsConfigFactory
 
     /**
      * @param string|null $connectionName
-     * @return \Brighte\Infrastructure\Aws\Sqs\SqsConfig
-     * @throws \Brighte\Infrastructure\Aws\Sqs\Exceptions\SqsConfigException
+     * @return \Brighte\Infrastructure\Aws\Sns\SnsConfig
+     * @throws \Brighte\Infrastructure\Aws\Sns\Exceptions\SnsConfigException
      */
-    public function get(?string $connectionName = null): SqsConfig
+    public function get(?string $connectionName = null): SnsConfig
     {
         if (!isset($this->configs->$connectionName)) {
-            throw new SqsConfigException(SqsConfigException::INVALID_CONNECTION_NAME . $connectionName);
+            throw new SnsConfigException(SnsConfigException::INVALID_CONNECTION_NAME . $connectionName);
         }
 
         $configObject = $this->configs->$connectionName;
@@ -60,7 +60,7 @@ class SqsConfigFactory
             $configArray[$key] = getenv($para);
         }
 
-        return new SqsConfig($connectionName, $configArray);
+        return new SnsConfig($connectionName, $configArray);
     }//end get()
 
 }//end class
