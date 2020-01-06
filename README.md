@@ -20,6 +20,7 @@
 #### 1. Infrastructure: A collection of tools that allow to easily configure and create objects on the flight:
 
 + (AWS) SqsClientFactory
++ (AWS) SnsClientFactory
 + (Doctrine) EntityManagerFactory
 + MonologFactory
 + RedisClientFactory 

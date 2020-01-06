@@ -30,9 +30,9 @@ class SnsClient implements SnsClientInterface
     }//end __construct()
 
     /**
-     * @param string $topicName
-     * @param string $body
-     * @param array $properties
+     * @param string $topicName topic name
+     * @param string $body message body
+     * @param array $properties messqage properties
      * @return \Brighte\Sns\SnsMessage|\Interop\Queue\Message|mixed
      * @throws \Interop\Queue\Exception
      * @throws \Interop\Queue\Exception\InvalidDestinationException
