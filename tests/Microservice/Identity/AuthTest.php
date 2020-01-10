@@ -79,6 +79,8 @@ class AuthTest extends TestCase
 
         $this->auth->setApiEndpoint('test_end_point');
         $this->auth->setClient($httpClient);
+        $this->assertEquals($this->auth->getClient(), $httpClient);
+        $this->assertEquals($this->auth->getApiEndpoint(), 'test_end_point');
         $this->assertEquals($this->auth->requestToken(), 'test_token');
 
         // test exception
@@ -104,6 +106,7 @@ class AuthTest extends TestCase
 
         $this->auth->setApiEndpoint('test_end_point');
         $this->auth->setJwtSecret('test-256-bit-secret');
+        $this->assertEquals('test-256-bit-secret', $this->auth->getJwtSecret());
 
         $class = new ReflectionClass($this->auth);
         $property = $class->getProperty('jwtAlg');
@@ -131,5 +134,45 @@ class AuthTest extends TestCase
         $this->assertEquals(false, $this->auth->authorize($this->jwtPayload, ['scope' => 123]));
         $this->jwtPayload->scope = ['scope' => 123];
         $this->assertEquals(true, $this->auth->authorize($this->jwtPayload, ['scope' => 123]));
+    }
+
+    public function testGetSet()
+    {
+        $this->auth->setJwtToken('test-token');
+        $this->assertEquals('test-token', $this->auth->getJwtToken());
+
+        $auth = $this->getMockBuilder(Auth::class)
+            ->setConstructorArgs(['test_end_point', [
+                'token' => 'test_token',
+                'secret' => 'test_secret',
+                'alg' => 'test_alg'
+            ]])
+            ->getMock();
+        
+        $class = new ReflectionClass($auth);
+        $property = $class->getProperty('apiEndpoint');
+        $property->setAccessible(true);
+        $this->assertEquals('test_end_point', $property->getValue($auth));
+
+        $property = $class->getProperty('jwtToken');
+        $property->setAccessible(true);
+        $this->assertEquals('test_token', $property->getValue($auth));
+
+        $property = $class->getProperty('jwtSecret');
+        $property->setAccessible(true);
+        $this->assertEquals('test_secret', $property->getValue($auth));
+
+        $property = $class->getProperty('jwtAlg');
+        $property->setAccessible(true);
+        $this->assertEquals('test_alg', $property->getValue($auth));
+
+        $auth = new Auth('test_end_point', [
+            'token' => 'test_token',
+            'secret' => 'test_secret',
+            'alg' => 'test_alg'
+        ]);
+        $this->assertEquals('test_end_point', $auth->getApiEndpoint());
+        $this->assertEquals('test_secret', $auth->getJwtSecret());
+        $this->assertEquals('test_token', $auth->getJwtToken());
     }
 }

@@ -2,9 +2,12 @@
 namespace Brighte\Test\Infrastructure\Aws\Sns;
 
 use Brighte\Infrastructure\Aws\Sns\SnsClientFactory;
+use Brighte\Infrastructure\Aws\Sns\SnsConfig;
 use Brighte\Sns\SnsProducer;
+use Brighte\Sns\SnsConnectionFactory;
 use Brighte\Sns\SnsContext;
 use PHPUnit\Framework\TestCase;
+use ReflectionClass;
 
 class SnsClientTest extends TestCase
 {
@@ -41,8 +44,26 @@ class SnsClientTest extends TestCase
         $this->snsProducerMock->method('send')->willReturn('MessageId');
         $this->snsClientFactory = new SnsClientFactory($this->snsConfigSettings);
         $this->snsClient = $this->snsClientFactory->create('sns.ms.crm');
-        
+
         $this->snsClientMock = $this->createMock(get_class($this->snsClient));
+    }
+
+    public function testGetterSetter()
+    {
+        $config = [
+            'key' => 'CRM_AWS_KEY',
+            'secret' => 'CRM_AWS_SECRET',
+            'region' => 'CRM_AWS_REGION',
+        ];
+        $configMock = new SnsConfig('sns.ms.crm', $config);
+        $snsConnectionFactory = $this->createMock(SnsConnectionFactory::class);
+        $this->snsClient->setFactory($snsConnectionFactory);
+        $this->snsClient->setConfig($configMock);
+
+        $this->assertEquals($config, $this->snsClient->getConfig()->toArray());
+        $this->assertEquals($config['key'], $this->snsClient->getConfig()->getKey());
+        $this->assertEquals($config['secret'], $this->snsClient->getConfig()->getSecret());
+        $this->assertEquals($config['region'], $this->snsClient->getConfig()->getRegion());
     }
 
     public function testConfig()
