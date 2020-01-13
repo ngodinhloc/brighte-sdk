@@ -38,7 +38,7 @@ class RedisConfigTest extends TestCase
      * @param string $prop
      * @return string
      */
-    protected function getProtectedProperty(object $class, string $prop): string
+    protected function getProtectedProperty($class, string $prop): string
     {
         $refClass = new ReflectionClass($class);
         $property = $refClass->getProperty($prop);
