@@ -31,7 +31,7 @@ class SqsClientFactory
      */
     public function create(?string $connectionName = null): SqsClientInterface
     {
-        /** @var \Brighte\Infrastructure\Aws\Sqs\SqsConfigInterface $config */
+        /** @var \Brighte\Infrastructure\Aws\Sqs\SqsConfig $config */
         $config = $this->configFactory->get($connectionName);
 
         return new SqsClient($config);

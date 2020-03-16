@@ -16,6 +16,7 @@
   "require": {
     "php": "^7.0",
     "brightecapital/sqs": "^1.0.0",
+    "brightecapital/sns": "^1.0.0",
     "brightecapital/service-schema": "^1.2",
     "doctrine/orm": "^2.5",
     "sentry/sentry": "1.10.0",
